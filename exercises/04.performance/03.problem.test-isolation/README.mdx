@@ -12,6 +12,8 @@ As with concurrency that we've covered previously, turning off test isolation is
 
 **When you disable test isolation, you're telling Vitest, "_It's alright, I've got the isolation covered myself_."** Isolation as a characteristic of your test suite is _mandatory_ for reliable and trustworthy testing. That is precisely why Vitest comes with isolation built-in—to help you write self-contained, independent tests. You don't need Vitest's test isolation to do that, it just makes it simpler.
 
+<callout-info>Unfortunately, there is no way of knowing whether it's the default test isolation from Vitest that is causing a performance degradation. Your best bet is to try disabling it on a subset of tests (using workspaces) and monitor the outcome.</callout-info>
+
 Isolation is the overarching theme when it comes to test performance. Reliable test runs cannot be achieved without properly isolated tests. This puts a similar list of criteria for disabling test isolation as we had for enabling concurrency:
 
 - Self-contained, independent tests;
@@ -22,10 +24,6 @@ This also means that you can benefit from correctly written tests in more ways t
 
 > I firmly believe that while right decisions are hard, one right decision leads to two right decisions, and so on.
 
-### Reading metrics
+## Your task
 
-Since disabling test isolation is an effort, you have to know if it's the said isolation that contributes to your tests being slow.
-
-TODO:
-
-- How do I know that it's test isolation that takes significant time? Is it displayed in some metric in Vitest?
+👨‍💼 ...
