@@ -10,7 +10,7 @@
 <div align="center">
   <a
     alt="Epic Web logo with the words Deployed Version"
-    href="https://advanced-vitest-patterns.epicweb.dev/
+    href="https://advanced-vitest-patterns.epicweb.dev/"
   >
     <img
       width="300px"
