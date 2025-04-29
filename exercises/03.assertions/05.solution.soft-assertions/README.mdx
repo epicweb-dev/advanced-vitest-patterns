@@ -69,7 +69,7 @@ Received: "2025-12-01T00:00:00.000Z"
 
 This gives me an overview of the entire system, not just the first failed assertion. Equipped with that knowledge, I can fix the issue as a whole instead of solving each failed assertion individually.
 
-```ts filename=src/plans.ts add=6,10-12
+```ts filename=src/plans.ts add=6,9-16
 	public cancel() {
 		if (this.state !== 'active') {
 			return
