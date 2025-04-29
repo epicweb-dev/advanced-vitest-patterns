@@ -78,13 +78,13 @@ This gives me an overview of the entire system, not just the first failed assert
 		this.state = 'cancelled'
 
 		const today = new Date()
-		today.setUTCDate(1)
-		today.setUTCMonth(
-			today.getUTCMonth() + 1 > 11 ? 0 : today.getUTCMonth() + 1,
-		)
-
-		if (today.getUTCMonth() === 0) {
-			today.setUTCFullYear(today.getUTCFullYear() + 1)
+		switch (this.kind) {
+			case "monthly":
+				today.setUTCMonth(today.getUTCMonth() + 1, 1)
+				break;
+			case "yearly":
+				today.setUTCFullYear(today.getUTCFullYear() + 1, 0, 1)
+				break;
 		}
 
 		this.endsAt = today.toISOString()
