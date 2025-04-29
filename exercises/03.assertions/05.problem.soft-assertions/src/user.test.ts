@@ -3,7 +3,7 @@ import { UnlimitedPlan } from './plans'
 
 beforeAll(() => {
 	vi.useFakeTimers()
-	vi.setSystemTime(new Date('2025-12-02T00:00:00Z'))
+	vi.setSystemTime(new Date('2025-11-02T00:00:00Z'))
 })
 
 afterAll(() => {
