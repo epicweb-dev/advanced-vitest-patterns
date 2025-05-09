@@ -1,0 +1,3 @@
+# Ignore the test files for this exercise because
+# they are generated during the setup step.
+/tests/**/*.test.ts

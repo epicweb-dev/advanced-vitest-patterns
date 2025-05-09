@@ -15,6 +15,7 @@ __screenshots__
 test-profiles
 coverage
 .vitest-reports
+*.DS_Store
 
 # in a real app you'd want to not commit the .env
 # file as well, but since this is for a workshop

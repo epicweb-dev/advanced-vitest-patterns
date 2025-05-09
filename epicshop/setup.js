@@ -1,4 +1,4 @@
-import { spawnSync } from 'child_process'
+import { spawnSync } from 'node:child_process'
 
 const styles = {
 	// got these from playing around with what I found from:
@@ -34,18 +34,33 @@ if (major < 8 || (major === 8 && minor < 16)) {
 	throw new Error('npm version is out of date')
 }
 
-const command =
-	'npx --yes "https://gist.github.com/kentcdodds/bb452ffe53a5caa3600197e1d8005733" -q'
-console.log(
-	color('subtitle', '      Running the following command: ' + command),
-)
+// Generate test suites for exercises.
+{
+	const result = spawnSync('node ./generate-tests.js', {
+		cwd: new URL('.', import.meta.url),
+		stdio: 'inherit',
+		shell: true,
+	})
 
-const result = spawnSync(command, { stdio: 'inherit', shell: true })
+	if (result.status !== 0) {
+		process.exit(result.status)
+	}
+}
 
-if (result.status === 0) {
-	console.log(color('success', '✅  Workshop setup complete...'))
-} else {
-	process.exit(result.status)
+{
+	const command =
+		'npx --yes "https://gist.github.com/kentcdodds/bb452ffe53a5caa3600197e1d8005733" -q'
+	console.log(
+		color('subtitle', '      Running the following command: ' + command),
+	)
+
+	const result = spawnSync(command, { stdio: 'inherit', shell: true })
+
+	if (result.status === 0) {
+		console.log(color('success', '✅  Workshop setup complete!'))
+	} else {
+		process.exit(result.status)
+	}
 }
 
 /*
