@@ -9,7 +9,7 @@ const TEST_COUNT = 500
 async function generateTests(exerciseDirectory, count) {
 	const TESTS_DIR = new URL('./tests/', exerciseDirectory)
 
-	const existingTests = fs.globSync('./*.test.ts', {
+	const existingTests = fs.globSync('*.test.ts', {
 		cwd: TESTS_DIR.pathname,
 	})
 	await Promise.all(
