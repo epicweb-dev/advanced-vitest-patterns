@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "exercises_04.performance_04.solution.sharding",
+  "name": "exercises_04.performance_03.solution.sharding",
   "scripts": {
     "test": "vitest"
   },

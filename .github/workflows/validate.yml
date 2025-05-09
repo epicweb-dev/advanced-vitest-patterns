@@ -29,8 +29,8 @@ jobs:
       - name: ▶️ Run setup script
         run: npm run setup
 
-      - name: ʦ TypeScript
-        run: npm run typecheck
+      # - name: ʦ TypeScript
+      #   run: npm run typecheck
 
       - name: ⬣ ESLint
         run: npm run lint

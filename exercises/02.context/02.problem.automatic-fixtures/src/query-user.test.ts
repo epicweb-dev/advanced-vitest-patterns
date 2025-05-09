@@ -1,7 +1,7 @@
 import { test } from '../test-extend'
 import { queryUser } from './query-user'
 
-test('throws if the user is not found', async () => {
+test('returns undefined if the user is not found', async () => {
 	await expect(queryUser('abc-123')).resolves.toBeUndefined()
 })
 

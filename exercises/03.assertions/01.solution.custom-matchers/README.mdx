@@ -14,7 +14,7 @@ interface CustomMatchers<MatcherResult = any> {
 }
 ```
 
-Here, I am declaring a new interface called `CustomMatchers` that will describe all the custom matchers I want in my tests. It accepts the `MatcherResult` type argument, which is a requirement in order to make marchers worker correctly with Vitest.
+Here, I am declaring a new interface called `CustomMatchers` that will describe all the custom matchers I want in my tests. It accepts the `MatcherResult` type argument, which is a requirement in order to make matchers work correctly with Vitest.
 
 The type definition for the matcher itself describes it as a simple function that accepts a `schema` and returns the `MatchResult`. This is how you can imagine this call signature upon usage:
 

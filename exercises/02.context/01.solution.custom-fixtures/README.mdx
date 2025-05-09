@@ -2,21 +2,24 @@
 
 Once I've got `@faker-js/faker` installed, I will head to a newly created `test-extend.ts` module and implement my custom fixture.
 
-Custom fixtures are enabled through creating your own `test()` function in Vitest by calling `test.extend()`:
+When it comes to any API design, I like approaching it _usage-first_. I create the usage experience I want and then deal with the implementation details to bring that vision to life. This custom fixture is no exception.
+
+In `test-extend.ts`, I will define a new type called `Fixtures` and use it to describe my custom fixture's name and its call signature:
 
 ```ts filename=test-extend.ts add=1-3
-import { test as testBase } from 'vitest'
-
-export const test = testBase.extend({})
+interface Fixtures {
+	createMockCart: (items: Array<Partial<CartItem>>) => Cart
+}
 ```
 
-The `test.extend()` function accepts an object where each key represents a custom fixture and each value that respective fixture's value.
+Above, I've declared a single custom fixture called `createMockCart`, which is a function that accepts an array of cart `items` and returns a cart object. I plan on using that fixture to help me mock different states of the cart in tests.
 
-I'm going to approach this type-first, declaring the expected type of my fixtures in a new interface called `Fixtures` and providing it as a type argument to the `test.extend()` call:
+Now it's time to implement it.
 
-```ts filename=test-extend.ts add=2,4-6 highlight=8
+Custom fixtures in Vitest work by extending the default `test()` function using the `test.extend()` method:
+
+```ts filename=test-extend.ts add=1,7
 import { test as testBase } from 'vitest'
-import type { Cart, CartItem } from './src/cart-utils'
 
 interface Fixtures {
 	createMockCart: (items: Array<Partial<CartItem>>) => Cart
@@ -25,9 +28,11 @@ interface Fixtures {
 export const test = testBase.extend<Fixtures>({})
 ```
 
-Above, I've declared a single custom fixture called `createMockCart`, which is a function that accepts an array of cart `items` and returns a cart object. I plan on using that fixture to help me mock different states of the cart object in tests.
+> I am importing the `test` function under the `testBase` alias to prevent name collision with my custom `test` function.
 
-Now it's time to implement it.
+The `test.extend()` method accepts an object that represents my custom fixtures. By providing the `Fixtures` type as the type argument to that method, I am letting Vitest know about my fixtures' type definitions.
+
+Let's add the implementation for the `createMockCart()` fixture.
 
 Despite the call signature of my fixture making it a simple function, the actual implementation for it will be a bit different. You can imagine the fixture implementation as a _higher-order function_ that allow you to hook into Vitest's existing context and internals, as well as control any side effects required to run _before_ and _after_ your fixture:
 

@@ -13,7 +13,8 @@ export default defineConfig({
 		// the source files to be used during the coverage analyzis.
 		// 💰 coverage: { include: ['src/**/*.ts'] }
 		//
-		// 🐨 Finally, add the `reporter` property and use the "html" reporter.
-		// 💰 coverage: { reporter: ['html'] }
+		// 🐨 Finally, add the `reporter` property and assign it an array
+		// as the value. In that array, list two reporters: "text" and "html".
+		// 💰 coverage: { reporter: ['text', 'html'] }
 	},
 })

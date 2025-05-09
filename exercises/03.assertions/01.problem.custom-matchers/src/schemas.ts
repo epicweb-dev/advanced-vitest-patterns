@@ -5,6 +5,4 @@ export const userSchema = z.object({
 	name: z.string(),
 })
 
-const r = userSchema.safeParse({})
-
 export type User = z.infer<typeof userSchema>

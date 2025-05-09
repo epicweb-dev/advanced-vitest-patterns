@@ -11,7 +11,8 @@ These changes can be illustrated in a simple Bash script. Let's call it `run-tes
 npx vitest --reporter=blob --shard=1/4 & \
 npx vitest --reporter=blob --shard=2/4 & \
 npx vitest --reporter=blob --shard=3/4 & \
-npx vitest --reporter=blob --shard=4/4
+npx vitest --reporter=blob --shard=4/4 & \
+wait
 ```
 
 <callout-info>In this exercise, we are using a script to illustrate a sharded test run. On CI, you can put each individual `npx vitest` command from above into a separate job, splitting the entire test suite into multiple shards.</callout-info>

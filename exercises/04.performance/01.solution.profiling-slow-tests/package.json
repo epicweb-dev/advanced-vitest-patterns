@@ -2,13 +2,10 @@
   "type": "module",
   "name": "exercises_04.performance_01.solution.profiling-slow-tests",
   "scripts": {
-    "dev": "vite",
     "test": "vitest",
-    "test:profile": "vitest-profiler npm test",
-    "build": "vite build"
+    "test:profile": "vitest-profiler npm test"
   },
   "devDependencies": {
-    "vite": "^6.2.6",
     "vitest": "^3.1.1",
     "vitest-profiler": "^0.1.8"
   }

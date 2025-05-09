@@ -2,12 +2,9 @@
   "type": "module",
   "name": "exercises_02.context_02.solution.automatic-fixtures",
   "scripts": {
-    "dev": "vite",
-    "test": "vitest",
-    "build": "vite build"
+    "test": "vitest"
   },
   "devDependencies": {
-    "vite": "^6.2.6",
     "vitest": "^3.1.1"
   },
   "dependencies": {

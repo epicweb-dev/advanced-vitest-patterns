@@ -51,19 +51,19 @@ test('returns the user by id', async ({ createMockDatabase }) => {
 	await createMockDatabase((db, done) => {
 		db.run(
 			'INSERT INTO users (id, name) VALUES (?, ?)',
-			['abc-123', 'John Doe'],
+			['abc-123', 'John Maverick'],
 			done,
 		)
 	})
 
 	await expect(queryUser('abc-123')).resolves.toEqual({
 		id: 'abc-123',
-		name: 'John Doe',
+		name: 'John Maverick',
 	})
 })
 ```
 
-The database fixture conveniently accepts a function that I can use to interact with the mock database. In the case above, I am injecting a row into the `users` table with id `'abc-123'` and name `'John Doe'`.
+The database fixture conveniently accepts a function that I can use to interact with the mock database. In the case above, I am injecting a row into the `users` table with id `'abc-123'` and name `'John Maverick'`.
 
 > The `done()` callback is there because the SQLite implementation I'm using isn't Promise-friendly. You can disregard that part since it's not important for us today.
 
@@ -88,15 +88,15 @@ Like in the `createMockDatabase()` fixture, if it detects a failing test, it wil
 
 ```txt nonumber highlight=23-25
  FAIL  src/query-user.test.ts > returns the user by id
-AssertionError: expected { id: 'abc-123', name: 'John Doe' } to deeply equal { id: 'abc-123', …(1) }
+AssertionError: expected { id: 'abc-123', name: 'John Maverick' } to deeply equal { id: 'abc-123', …(1) }
 
 - Expected
 + Received
 
   {
     "id": "abc-123",
--   "name": "Kate McMaverick",
-+   "name": "John Doe",
+-   "name": "Kate Smith",
++   "name": "John Maverick",
   }
 
  ❯ src/query-user.test.ts:17:2
@@ -105,7 +105,7 @@ AssertionError: expected { id: 'abc-123', name: 'John Doe' } to deeply equal { i
      17|  await expect(queryUser('abc-123')).resolves.toEqual({
        |  ^
      18|   id: 'abc-123',
-     19|   name: 'Kate McMaverick',
+     19|   name: 'Kate Smith',
 
 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
 

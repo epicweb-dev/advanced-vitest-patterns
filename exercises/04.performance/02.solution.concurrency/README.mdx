@@ -4,7 +4,7 @@ Vitest runs each test case in a test file _sequentially_. We can speed up our te
 
 ```diff filename=your.test.ts remove=1 add=2
 test(`${i}`, () => {})
-test.concurrent(`${i}`, () => {})
+test.concurrent(`${i}`, async () => {})
 //   👆👆👆👆👆👆
 ```
 
@@ -14,7 +14,7 @@ By making our test cases concurrent, we can switch from a test waterfall to a fl
 
 Now that our test run at the same time, it is absolutely crucial we provision proper _test isolation_. We don't want tests to be stepping on each other's toes and becoming flaky as a result. This often comes down to eliminating or replacing any shared (or global) state in test cases.
 
-For example, ...
+For example, the `expect()` function that you use to make assertions _might contain state_. It is essential we scoped that function to individual test case by accessing it from the test context object:
 
 ```ts diff remove=1 add=3
 test.concurrent(`${i}`, async () => {

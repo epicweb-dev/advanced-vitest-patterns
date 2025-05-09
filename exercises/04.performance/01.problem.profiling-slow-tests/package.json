@@ -2,12 +2,9 @@
   "type": "module",
   "name": "exercises_04.performance_01.problem.profiling-slow-tests",
   "scripts": {
-    "dev": "vite",
-    "test": "vitest --no-cache",
-    "build": "vite build"
+    "test": "vitest --no-cache"
   },
   "devDependencies": {
-    "vite": "^6.2.6",
     "vitest": "^3.1.1",
     "vitest-profiler": "^0.1.8"
   }

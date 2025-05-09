@@ -1,7 +1,7 @@
 {
 	"extends": "./tsconfig.base.json",
 	"include": ["src/**/*"],
-	"exclude": ["src/**/*.test.ts"],
+	"exclude": ["src/api", "src/**/*.test.ts"],
 	"compilerOptions": {
 		"lib": ["esnext"]
 	}

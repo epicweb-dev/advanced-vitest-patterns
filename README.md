@@ -10,7 +10,7 @@
 <div align="center">
   <a
     alt="Epic Web logo with the words Deployed Version"
-    href="https://advanced-vitest-patterns.epicweb.dev/
+    href="https://advanced-vitest-patterns.epicweb.dev/"
   >
     <img
       width="300px"
@@ -50,7 +50,7 @@ speed on some of the tools and concepts we'll be covering:
 ## System Requirements
 
 - [git][git] v2.18 or greater
-- **[NodeJS][node] v23 or greater**
+- **[NodeJS][node] v23.11.0 or greater**
 - [npm][npm] v8 or greater
 
 All of these must be available in your `PATH`. To verify things are set up

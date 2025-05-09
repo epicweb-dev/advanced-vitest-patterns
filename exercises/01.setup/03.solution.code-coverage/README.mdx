@@ -46,11 +46,13 @@ export default defineConfig({
 		coverage: {
 			enabled: true,
 			include: ['src/**/*.ts'],
-			reporter: ['html'],
+			reporter: ['text', 'html'],
 		},
 	},
 })
 ```
+
+> I will also keep the default `'text` reporter so I can see the coverage summary in my terminal right next to the test run. You can combine as many test reporters as you need.
 
 ## View coverage report
 
@@ -74,9 +76,7 @@ First, I will install the `@vitest/ui` package:
 npm install @vitest/ui --save-dev
 ```
 
-And now I can preview the HTML coverage report by running Vitest in the UI mode, which means either providing the `--ui` option to the Vitest CLI or setting the `test.ui` option to `true` in `vitest.config.ts`.
-
-Once I run Vitest in the UI mode, I can go to the "Coverage" tab and preview the coverage report for my test run straight in the UI:
+And now I can preview the HTML coverage report by running Vitest in the UI mode, which means either providing the `--ui` option to the Vitest CLI. Once I run Vitest in the UI mode, I can go to the "Coverage" tab and preview the coverage report for my test run straight in the UI:
 
 ![A screenshot of the Vitest UI with the cursor hovering over the "Coverage" tab on the top left.](/assets/01-03-vitest-ui-coverage-tab.png)
 

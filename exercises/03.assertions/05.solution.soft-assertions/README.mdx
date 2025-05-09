@@ -11,10 +11,10 @@ test('cancels the user subscription', () => {
 	const user = new User()
 	user.subscribe(new UnlimitedPlan())
 
-	expect.(user.subscription.name).toBe('Unlimited')
-	expect.(user.subscription.kind).toBe('yearly')
-	expect.(user.subscription.state).toBe('active')
-	expect.(user.subscription.endsAt).toBeUndefined()
+	expect(user.subscription.name).toBe('Unlimited')
+	expect(user.subscription.kind).toBe('yearly')
+	expect(user.subscription.state).toBe('active')
+	expect(user.subscription.endsAt).toBeUndefined()
 	expect.soft(user.subscription.name).toBe('Unlimited')
 	expect.soft(user.subscription.kind).toBe('yearly')
 	expect.soft(user.subscription.state).toBe('active')
@@ -89,7 +89,6 @@ This gives me an overview of the entire system, not just the first failed assert
 
 		this.endsAt = today.toISOString()
 	}
-}
 ```
 
 ## When to use soft assertions

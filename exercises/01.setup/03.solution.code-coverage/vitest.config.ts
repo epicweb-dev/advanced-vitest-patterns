@@ -6,7 +6,7 @@ export default defineConfig({
 		coverage: {
 			enabled: true,
 			include: ['src/**/*.ts'],
-			reporter: ['html'],
+			reporter: ['text', 'html'],
 		},
 	},
 })
