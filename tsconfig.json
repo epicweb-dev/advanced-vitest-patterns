@@ -83,10 +83,16 @@
       "path": "exercises/04.performance/02.solution.concurrency"
     },
     {
-      "path": "exercises/04.performance/03.problem.sharding"
+      "path": "exercises/04.performance/03.problem.test-isolation"
     },
     {
-      "path": "exercises/04.performance/03.solution.sharding"
+      "path": "exercises/04.performance/03.solution.test-isolation"
+    },
+    {
+      "path": "exercises/04.performance/04.problem.sharding"
+    },
+    {
+      "path": "exercises/04.performance/04.solution.sharding"
     }
   ]
 }

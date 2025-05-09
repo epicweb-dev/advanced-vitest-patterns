@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "exercises_04.performance_03.solution.sharding",
+  "name": "exercises_04.performance_03.problem.test-isolation",
   "scripts": {
     "test": "vitest"
   },

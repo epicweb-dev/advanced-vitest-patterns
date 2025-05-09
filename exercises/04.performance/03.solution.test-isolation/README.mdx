@@ -1,0 +1,35 @@
+# Test isolation
+
+## TODO
+
+- You can spot the cost of spawning the worker as a part of the `prepare` metric in the test summary.
+
+---
+
+By default, Vitest runs each test file in an isolated environment (a worker, a forked process, or a VM context). That is a sensible default to make sure that no state gets leaked between test files and also make it a bit easier for you to orchestrate test setup as you don't have to worry about the entire test suite at once, just a single test file at a time.
+
+That being said, test isolation comes with a cost as spawning workers and processes takes time. Depending on the size of your test suite, that time can range from unsubstantial to quite drastic. That is why sometimes disabling test isolation can speed up your test run.
+
+<callout-warning>I am obligated to remind you that, much like concurrency, disabling test isolation is _never a solution to a problem_. It's a change in how your testing framework runs, and it often requires you to adjust your tests in order to benefit from it.</callout-warning>
+
+## When to disable test isolation?
+
+As with concurrency that we've covered previously, turning off test isolation is a conscious choice that comes with a price. It is worth mentioning that when I talk about disabling isolation, I only refer to _changing how Vitest runs your test files_. In other words, it's about telling Vitest _not_ to spend time dealing with workers/forks/vms when running tests.
+
+**When you disable test isolation, you're telling Vitest, "_It's alright, I've got the isolation covered myself_."** Isolation as a characteristic of your test suite is _mandatory_ for reliable and trustworthy testing. That is precisely why Vitest comes with isolation built-in—to help you write self-contained, independent tests. You don't need Vitest's test isolation to do that, it just makes it simpler.
+
+<callout-info>Unfortunately, there is no way of knowing whether it's the default test isolation from Vitest that is causing a performance degradation. Your best bet is to try disabling it on a subset of tests (using workspaces) and monitor the outcome.</callout-info>
+
+Isolation is the overarching theme when it comes to test performance. Reliable test runs cannot be achieved without properly isolated tests. This puts a similar list of criteria for disabling test isolation as we had for enabling concurrency:
+
+- Self-contained, independent tests;
+- Limited or properly managed side effects;
+- Carefully arranged test setup.
+
+This also means that you can benefit from correctly written tests in more ways than one. You can make them concurrent _and_ stop paying extra time for built-in isolation in Vitest since you've got it covered already.
+
+> I firmly believe that while right decisions are hard, one right decision leads to two right decisions, and so on.
+
+## Your task
+
+👨‍💼 ...

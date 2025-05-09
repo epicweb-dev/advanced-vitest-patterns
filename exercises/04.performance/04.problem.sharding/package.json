@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "name": "exercises_04.performance_04.problem.sharding",
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^3.1.1"
+  }
+}
