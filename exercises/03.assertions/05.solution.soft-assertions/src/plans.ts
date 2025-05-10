@@ -26,11 +26,7 @@ export class Plan {
 		}
 
 		const today = new Date()
-		today.setUTCDate(1)
-
-		if (today.getUTCMonth() === 0) {
-			today.setUTCFullYear(today.getUTCFullYear() + 1)
-		}
+		today.setUTCMonth(today.getUTCMonth() + 1, 1)
 
 		this.endsAt = today.toISOString()
 	}
