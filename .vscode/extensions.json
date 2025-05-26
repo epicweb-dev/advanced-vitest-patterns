@@ -2,6 +2,7 @@
 	"recommendations": [
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
-		"neotan.vscode-auto-restart-typescript-eslint-servers"
+		"neotan.vscode-auto-restart-typescript-eslint-servers",
+		"qwtel.sqlite-viewer"
 	]
 }

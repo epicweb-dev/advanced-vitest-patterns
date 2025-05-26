@@ -6,12 +6,13 @@ Your custom fixtures can introduce side effects that run before and after the fi
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
+import { test as testBase } from 'vitest'
 
 interface Fixtures {
-	createMockFile: (content: string, filename: string) => Promise<void>
+	createMockFile: (content: string, filename: string) => Promise<string>
 }
 
-test.extend({
+const test = testBase.extend<Fixtures>({
 	async createMockFile({}, use) {
 		// 1. Prepare.
 		const temporaryDirectory = await fs.promises.mkdtemp(
