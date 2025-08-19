@@ -32,4 +32,24 @@ This also means that you can benefit from correctly written tests in more ways t
 
 ## Your task
 
-👨‍💼 ...
+Opt out of the default test isolation and observe how this change affects how your tests are ran.
+
+### Configuration Change
+
+To disable test isolation and prevent Vitest from spawning a worker for each test file:
+
+1. Open your `vitest.config.js` (or `vitest.config.ts`)
+2. Add or modify the test configuration:
+
+```javascript
+export default defineConfig({
+  test: {
+    globals: true,
+    isolate: false,
+  },
+})
+```
+
+Then run `npm test`. 
+
+What change did this make to your test run?
