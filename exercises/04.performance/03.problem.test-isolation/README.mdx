@@ -1,11 +1,14 @@
 # Test isolation
 
-Vitest runs every test file in a separate worker, which enables parallel execution and speeds up tests by default. 
+<EpicVideo url="https://www.epicweb.dev/workshops/advanced-vitest-patterns/performance/04-03-problem" />
+
+Vitest runs every test file in a separate worker, which enables parallel execution and speeds up tests by default.
 
 Each worker has its own isolated environment, meaning that if one test file mutates a global variable, other test files won't be affected by this mutation. This test file-level isolation is a great feature for preventing test interference.
 
 ### The Problem
-While test isolation provides benefits, **it comes with a performance cost.** 
+
+While test isolation provides benefits, **it comes with a performance cost.**
 
 When you have hundreds or thousands of test files, the overhead of spawning a worker for each file accumulates and can significantly degrade performance.
 

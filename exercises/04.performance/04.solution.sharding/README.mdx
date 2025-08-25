@@ -1,5 +1,7 @@
 # Sharding
 
+<EpicVideo url="https://www.epicweb.dev/workshops/advanced-vitest-patterns/performance/04-04-problem/solution" />
+
 To enable sharding, we need to change the way we run Vitest:
 
 1. Provide the [`--shard`](https://main.vitest.dev/guide/cli#shard) option to the Vitest CLI, describing which shard group this process should run. For example, to run the first quarter of the tests, use `--shard=1/4`; the second quarter will be `--shard=2/4`, and so on.

@@ -1,5 +1,7 @@
 # Custom equality testers
 
+<EpicVideo url="https://www.epicweb.dev/workshops/advanced-vitest-patterns/assertions/03-03-problem" />
+
 Assertions in tests often come down to _value comparison_. You expect the result of <span style={{ whiteSpace: 'nowrap' }}>`sum(2, 3)`</span> to equal `5`; you expect `cart` to have a property `items` of type `Array`, and so on. And, sometimes, comparing things isn't as straightforward.
 
 For example, imagine testing software that deals with measurements. Each measurement has a `value` (e.g. 1, 5, or 57) and a `unit` (inches, millimeters, centimeters, etc). It's quite easy to compare two measurements if both their values and units are the same:

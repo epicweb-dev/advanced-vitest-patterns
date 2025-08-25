@@ -1,5 +1,7 @@
 # Custom equality testers
 
+<EpicVideo url="https://www.epicweb.dev/workshops/advanced-vitest-patterns/assertions/03-03-problem/solution" />
+
 Much like custom matchers, custom equality testers live in the setup file, which in our case is `vitest.setup.ts`. To extend the built-in equality logic (the one used by `.toEqual()`), I will call the `expect.addEqualityTesters()` function and provide it with a list of custom equality testers.
 
 ```ts filename=vitest.setup.ts add=3
