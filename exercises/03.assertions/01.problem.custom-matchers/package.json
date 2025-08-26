@@ -5,7 +5,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^22.14.1",
+    "@types/node": "^24.3.0",
     "vitest": "^3.2.0"
   },
   "dependencies": {
