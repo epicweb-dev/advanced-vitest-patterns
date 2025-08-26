@@ -36,7 +36,8 @@
     "format": "prettier --write .",
     "typecheck": "tsc -b",
     "test:all": "find exercises -type f -name package.json -print0 | xargs -0 -n1 dirname | grep -E '/[^/]*\\.solution\\.[^/]*$' | xargs -I{} npm -w {} run test --if-present",
-    "validate": "npm run typecheck && npm run lint && npm run test:all"
+    "check": "npm run typecheck && npm run lint && npm run test:all",
+    "validate:all": "npm-run-all --parallel --print-label --print-name --continue-on-error test:all lint typecheck"
   },
   "keywords": [],
   "author": "Artem Zakharchenko <kettanaito@gmail.com> (https://kettanaito.com/)",
