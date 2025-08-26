@@ -1,7 +1,7 @@
 export function expensiveCompute() {
 	const rows = []
 
-	for (let i = 0; i < 100_000_000; i++) {
+	for (let i = 0; i < 10_000_000; i++) {
 		rows.push(i)
 	}
 

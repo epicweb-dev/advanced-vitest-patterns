@@ -3,5 +3,5 @@ import { expensiveCompute } from './utils'
 test('retrieves all the rows', function myTest() {
 	const rows = expensiveCompute()
 	expect(rows).toBeInstanceOf(Array)
-	expect(rows).toHaveLength(100_000_000)
+	expect(rows).toHaveLength(10_000_000)
 })

@@ -20,8 +20,8 @@ test('sorts a list of players by their score', () => {
 			'score',
 		),
 	).toEqual([
-		{ name: 'Sarah', score: 21 },
-		{ name: 'John', score: 10 },
 		{ name: 'Allen', score: 5 },
+		{ name: 'John', score: 10 },
+		{ name: 'Sarah', score: 21 },
 	])
 })
