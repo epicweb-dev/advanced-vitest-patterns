@@ -10,6 +10,6 @@
     "@edge-runtime/types": "^4.0.0",
     "@edge-runtime/vm": "^5.0.0",
     "edge-runtime": "^4.0.1",
-    "vitest": "^3.1.1"
+    "vitest": "^3.2.4"
   }
 }

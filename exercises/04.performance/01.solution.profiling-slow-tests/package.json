@@ -6,7 +6,7 @@
     "test:profile": "vitest-profiler npm test"
   },
   "devDependencies": {
-    "vitest": "^3.1.1",
+    "vitest": "^3.2.4",
     "vitest-profiler": "^0.1.8"
   }
 }

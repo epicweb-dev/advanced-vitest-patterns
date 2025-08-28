@@ -5,7 +5,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "vitest": "^3.1.1"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "sqlite3": "^5.1.7"
