@@ -38,9 +38,7 @@ declare module 'vitest' {
 }
 ```
 
-This is the interface from `vitest` that I extend using module augmentation:
-
-- `Matchers<T>`, which controls the matchers returned by calling `expect()` and annotates the matcher declarations passed to `expect.extend()`.
+Here, I'm augmenting the `Matchers` type from `vitest` with my custom `CustomMatchers` type. By doing so, I'm extending the type definitions for the `expect()` function as well as the argument type of `expect.extend()` for later.
 
 This is enough for the `.toMatchSchema()` custom matcher to be recognized by TypeScript:
 
