@@ -50,7 +50,7 @@ But this is only half of the story. Running this `expect()` statement will throw
 
 To provide a matcher implementation, call `expect.extend()` and provide it with an object that contains the definitions for your custom matchers:
 
-```ts filename=vitest.setup.ts add=1,13-15
+```ts filename=vitest.setup.ts add=1,12-14
 import { expect } from 'vitest'
 import type { Schema } from 'zod'
 
@@ -59,8 +59,7 @@ interface CustomMatchers<MatcherResult = any> {
 }
 
 declare module 'vitest' {
-	interface Assertion<T = any> extends CustomMatchers<T> {}
-	interface MatchersDeclaration extends CustomMatchers {}
+	interface Matchers<T> extends CustomMatchers<T> {}
 }
 
 expect.extend({

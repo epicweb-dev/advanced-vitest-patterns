@@ -17,17 +17,11 @@
 // 🐨 Augment the type definition for the `vitest` module.
 // 💰 declare module 'name' {}
 //
-// 🐨 Inside the module declaration, declare an interface called `Assertion<T = any>`.
+// 🐨 Inside the module declaration, declare an interface called `Matchers<T>`.
 // Make it extend the `CustomMatchers` interface you created earlier.
 // This will extend the type definitions of the `expect()` function to recognize
 // your custom matchers.
-// 💰 interface Assertion<T = any> extends CustomMatchers<T> {}
-//
-// 🐨 In a similar way, declare another interface called `MatchersDeclaration`
-// and make it extend your `CustomMatchers` interface.
-// This will extend the type definitions of the `expect.extend()` function
-// to make the implementation of your custom matchers type-safe.
-// 💰 interface MatchersDeclaration extends CustomMatchers {}
+// 💰 interface Matchers<T> extends CustomMatchers<T> {}
 //
 // This covers your custom matcher on the type-level.
 // Now, let's continue with its implementation!

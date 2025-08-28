@@ -2,19 +2,9 @@
 
 <EpicVideo url="https://www.epicweb.dev/workshops/advanced-vitest-patterns/assertions/03-02-problem/solution" />
 
-To expose my `.toMatchSchema()` matcher as an asymmetric matcher, I will extend the `AsymmetricMatchersContaining` interface of the `vitest` module:
+To expose my `.toMatchSchema()` matcher as an asymmetric matcher, I need to... do nothing! Vitest automatically provides both symmetric and asymmetric versions for your custom matchers, including type definitions.
 
-```ts nonumber add=4
-declare module 'vitest' {
-	interface Assertion<T = any> extends CustomMatchers<T> {}
-	interface MatchersDeclaration extends CustomMatchers {}
-	interface AsymmetricMatchersContaining extends CustomMatchers {}
-}
-```
-
-> The `AsymmetricMatchersContaining` controls the matcher types available as asymmetric matchers on the `expect` object (e.g. `expect.objectContaining()`).
-
-With this change, the type error in the `src/fetch-user.test.ts` is finally gone! 🎉
+All that's left for me to do is to use the asymmetric version of the `toMatchSchema()` matcher in tests:
 
 ```ts filename=src/fetch-user.test.ts highlight=6
 import { fetchUser } from './fetch-user'
@@ -26,9 +16,7 @@ test('returns the user by id', async () => {
 })
 ```
 
-This means that I can use the `.toMatchSchema()` matcher as asymmetric, which is exactly what I need to complete the test case for user transactions.
-
-In `src/fetch-transaction.test.ts`, I will write the remaining test:
+And in `src/fetch-transaction.test.ts`, I will write the remaining test:
 
 ```ts filename=src/fetch-transaction.test.ts add=5-11
 import { fetchTransaction, type Transaction } from './fetch-transaction'
@@ -45,7 +33,7 @@ test('fetches a transaction between two users', async () => {
 })
 ```
 
-> 🦉 Notice how I'm using schema validation to make sure that transaction's `issuer` and `recipient` properties both match the `userSchema`.
+> 🦉 Notice the usage of the `Transaction` type as the type argument to the default `.toEqual` matcher. It ensures that the expected value I pass to that matcher is type-safe.
 
 ## Related materials
 
