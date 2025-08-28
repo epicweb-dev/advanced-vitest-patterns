@@ -44,6 +44,16 @@ There are two interfaces from `vitest` that I extend using module augmentgation:
 - `Assertion<T>`, which controls the matchers returned by calling `expect()`;
 - `MatchersDeclaration`, which annotates the matcher declarations passed to `expect.extend()`.
 
+<callout-info>Since Vitest 3.2, you can extend the `Matchers` interface to have type-safe assertions in `expect.extend`, `expect().*` and `expect.*` methods at the same time.</callout-info>
+
+```diff ts filename=vitest.setup.ts add=3 remove=2,3 highlight=3
+declare module 'vitest' {
+-	interface Assertion<T = any> extends CustomMatchers<T> {}
+-	interface MatchersDeclaration extends CustomMatchers {}
++	interface Matchers<T> extends CustomMatchers {}
+}
+```
+
 This is enough for the `.toMatchSchema()` custom matcher to be recognized by TypeScript:
 
 ```ts nonumber nocopy
