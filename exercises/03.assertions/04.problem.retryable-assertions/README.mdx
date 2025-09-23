@@ -11,7 +11,7 @@ const response = await fetch('/api/songs')
 await expect(response.json()).resolves.toEqual(favoriteSongs)
 ```
 
-> While fetching the list of songs takes time, that eventuality is represented as a Promise that you can `await`. This guaratees that your test will not continue until the data is fetched. Quite the same applies to reading the response body stream.
+> While fetching the list of songs takes time, that eventuality is represented as a Promise that you can `await`. This guarantees that your test will not continue until the data is fetched. Quite the same applies to reading the response body stream.
 
 But not all systems are designed like that. And even the systems that _are_ designed like that may not expose you the right Promises to await.
 
