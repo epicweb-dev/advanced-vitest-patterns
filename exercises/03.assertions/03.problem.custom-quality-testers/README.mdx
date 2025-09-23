@@ -16,7 +16,7 @@ It's a bit harder if those two are different.
 expect(new Measurement(1, 'in')).toEqual(new Measurement(2.54, 'cm')) // ❌
 ```
 
-Semantically, these two measurements _are_ equal. 1 inch is, indeed, 2.54 centimeters. But syntanctically these two measurements produce different class instances that cannot be compared literally:
+Semantically, these two measurements _are_ equal. 1 inch is, indeed, 2.54 centimeters. But syntactically these two measurements produce different class instances that cannot be compared literally:
 
 ```ts nonumber
 // If you unwrap measurements, you can imagine them as plain objects.
