@@ -61,7 +61,7 @@ This information is available each time you run your tests and is not exclusive 
 - `environment`, the time it took to set up and tear down your test environment;
 - `prepare`, the time it took for Vitest to prepare the test runner.
 
-This overview is a fantastic starting point in indentifying which areas of your test run are the slowest. For instance, I can see that Vitest spent most time _running the tests_:
+This overview is a fantastic starting point in identifying which areas of your test run are the slowest. For instance, I can see that Vitest spent most time _running the tests_:
 
 ```txt nonumber highlight=4
 transform 18ms,
@@ -72,7 +72,7 @@ environment 0ms,
 prepare 32ms
 ```
 
-> Your test duration summary will likely be different. See which phases took the most time to know where you should direct your further investigation. For example, if the `setup` phase is too slow, it may be because your test setup is too heavy and should be refactored. If `collect` is lagging behind, it may mean that Vitest has trouble scrapping your large monorepo and you should help it locate the test files by providing explicit `include` and `exclude` options in your Vitest configuration.
+> Your test duration summary will likely be different. See which phases took the most time to know where you should direct your further investigation. For example, if the `setup` phase is too slow, it may be because your test setup is too heavy and should be refactored. If `collect` is lagging behind, it may mean that Vitest has trouble scraping your large monorepo and you should help it locate the test files by providing explicit `include` and `exclude` options in your Vitest configuration.
 
 With this covered, let's move on to the `vitest-profiler` report.
 
@@ -83,18 +83,18 @@ With this covered, let's move on to the `vitest-profiler` report.
 - **Main thread**, which is a Node.js process that spawned Vitest. This roughly corresponds to the `prepare`, `collect`, `transform`, and `environment` phases from the Vitest's time metrics;
 - **Tests**, which is individual threads/forks that ran your test files. This roughly corresponds to the `tests` time metric.
 
-These separate profiles allows you to take a peek behind the curtain of your test runtime. You can get an idea of what your testing framework is doing and what your tests are doing, and, hopefully, spot the root cause for that nasty parformance degradation.
+These separate profiles allow you to take a peek behind the curtain of your test runtime. You can get an idea of what your testing framework is doing and what your tests are doing, and, hopefully, spot the root cause for that nasty performance degradation.
 
 CPU and memory profiles reflect different aspects of your test run:
 
 - **CPU profile** shows you the CPU consumption. This will generally point you toward code that takes too much time to run;
-- **Memory (or heap) profile** shows you the memory consumption. This is handy to watch for memory leaks and heaps that can also negavtively impact your test performance.
+- **Memory (or heap) profile** shows you the memory consumption. This is handy to watch for memory leaks and heaps that can also negatively impact your test performance.
 
 Next, I will explore each individual profile in more detail.
 
 ### Main thread profiles
 
-One of the firts things the profiler reports is a CPU profile for the main thread:
+One of the first things the profiler reports is a CPU profile for the main thread:
 
 ```txt nonumber highlight=4
 Test profiling complete! Generated the following profiles:
@@ -115,7 +115,7 @@ Here's how the CPU profile for the main thread looks like:
 
 > Now, if this looks intimidating, don't worry. Profiles will often contain a big chunk of pointers and stack traces you don't know or understand because they reflect the state of the _entire process_.
 
-In these profiles, I am interested in spotting _abnormally long execution times_. Luckily, this report is sortred by "Total Time" automatically for me! That being said, I see nothing suspicious in the main thread so I proceed to the other profiles.
+In these profiles, I am interested in spotting _abnormally long execution times_. Luckily, this report is sorted by "Total Time" automatically for me! That being said, I see nothing suspicious in the main thread so I proceed to the other profiles.
 
 ### Test profiles
 
@@ -144,5 +144,5 @@ What I can also do is give you a rough idea about approaching issues based on th
 | CPU                                                             | Memory                                                                                                                                                                |
 | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Analyze your expensive logic and refactor it where appropriate. | Analyze the problematic logic to see why it leaks memory.                                                                                                             |
-| Take advantage of asynchronicity and parallelization.           | Fix improper memory management (e.g. rougue child processes, unterminated loops, forgotten timers and intervals, etc).                                                |
+| Take advantage of asynchronicity and parallelization.           | Fix improper memory management (e.g. rogue child processes, unterminated loops, forgotten timers and intervals, etc).                                                |
 | Use caching where appropriate.                                  | In your test setup, be cautious about closing test servers or databases. Prefer scoping mocks to individual tests and deleting them completely once the test is done. |
