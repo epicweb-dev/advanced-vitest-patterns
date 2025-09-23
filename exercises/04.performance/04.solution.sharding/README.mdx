@@ -25,7 +25,7 @@ Then, to run all the tests I will run that script in my terminal:
 ./run-tests.sh
 ```
 
-This script will split the test suite in four shard and run them in parallel (`&`), producing isolated test reports.
+This script will split the test suite into four shards and run them in parallel (`&`), producing isolated test reports.
 
 <callout-success>Sharding is particularly useful in CI. If you have a large test suite that takes 8s to complete, splitting it into four groups and four parallel CI jobs can speed up the tests up to _four times_.</callout-success>
 

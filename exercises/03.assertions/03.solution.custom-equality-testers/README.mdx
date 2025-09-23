@@ -90,7 +90,7 @@ Let's iterate over the difference between _equality testers_ and _matchers_ to h
 | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
 | Extends the `.toEqual()` logic.                                                      | Implement entirely custom logic.                                                                                  |
 | Automatically applied recursively (e.g. if your measurement is nested in an object). | Always applied explicitly. Nested usage is enabled through asymmetric matchers (`{ value: expect.myMatcher() }`). |
-| Must always be _synchronous_.                                                        | Can be both synchronous and asynchronous, utilizing the `.resolves.` and `.rejects.` chaning.                     |
+| Must always be _synchronous_.                                                        | Can be both synchronous and asynchronous, utilizing the `.resolves.` and `.rejects.` chaining.                     |
 
 Custom equality testers, as the name implies, are your go-to choice to help Vitest compare values that cannot otherwise be compared by sheer serialization (like our `Measurement`, or, for example, `Response` instances).
 

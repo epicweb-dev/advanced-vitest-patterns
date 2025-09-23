@@ -52,7 +52,7 @@ Once you access that fixture from the test context object, Vitest will know that
 
 But what about the tests that _don't_ use that fixture?
 
-Since they never reference it, _Vitest will skip its initalization_. That makes sense. If you don't need a temporary file for this test, there's no need to create and delete the temporary directory. Nothing is going to use it.
+Since they never reference it, _Vitest will skip its initialization_. That makes sense. If you don't need a temporary file for this test, there's no need to create and delete the temporary directory. Nothing is going to use it.
 
 <callout-info>In other words, all fixtures are _lazy_ by default. Their implementation won't be called unless you reference that fixture in your test.</callout-info>
 

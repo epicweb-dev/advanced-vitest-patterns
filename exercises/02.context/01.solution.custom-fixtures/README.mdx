@@ -99,7 +99,7 @@ export const test = testBase.extend<Fixtures>({
 })
 ```
 
-Here, I am maping over the given `items` and making sure that each cart item has complete values. I am using the `faker` object to generate random values so I don't have to describe the entire cart item if my test case is interested only in some of its properties, like `price` and `quantity`, for example.
+Here, I am mapping over the given `items` and making sure that each cart item has complete values. I am using the `faker` object to generate random values so I don't have to describe the entire cart item if my test case is interested only in some of its properties, like `price` and `quantity`, for example.
 
 Finally, to use this custom test context and my fixture, I'll go to the `src/cart-utils.test.ts` test file and import the custom `test` function I've created:
 
@@ -154,7 +154,7 @@ The `cart` fixture effectively becomes a _shared state_. If you change its value
 
 <callout-success>Use fixtures to _help create values_ but always make the values _known in the context of the test_. Everything the test needs has to be known and controlled within that test.</callout-success>
 
-Once exception to this rule is _resused value that is never going to change_ within the same test run. For example, if you're testing against different locales of your application, you might want to set the `locale` before the test run and expose its value as a fixture:
+Once exception to this rule is _reused value that is never going to change_ within the same test run. For example, if you're testing against different locales of your application, you might want to set the `locale` before the test run and expose its value as a fixture:
 
 ```ts highlight=1
 test('...', ({ locale }) => {})

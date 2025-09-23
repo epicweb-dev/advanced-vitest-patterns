@@ -12,11 +12,11 @@ test.concurrent(`${i}`, async () => {})
 
 By making our test cases concurrent, we can switch from a test waterfall to a flat test execution:
 
-![A diagram illustrating a test case waterfal without concurrency and a simultaneous test case execution with concurrency enabled](/assets/05-02-with-concurrency.png)
+![A diagram illustrating a test case waterfall without concurrency and a simultaneous test case execution with concurrency enabled](/assets/05-02-with-concurrency.png)
 
-Now that our test run at the same time, it is absolutely crucial we provision proper _test isolation_. We don't want tests to be stepping on each other's toes and becoming flaky as a result. This often comes down to eliminating or replacing any shared (or global) state in test cases.
+Now that our tests run at the same time, it is absolutely crucial we provision proper _test isolation_. We don't want tests to be stepping on each other's toes and becoming flaky as a result. This often comes down to eliminating or replacing any shared (or global) state in test cases.
 
-For example, the `expect()` function that you use to make assertions _might contain state_. It is essential we scoped that function to individual test case by accessing it from the test context object:
+For example, the `expect()` function that you use to make assertions _might contain state_. It is essential we scope that function to individual test case by accessing it from the test context object:
 
 ```ts diff remove=1 add=3
 test.concurrent(`${i}`, async () => {
@@ -55,7 +55,7 @@ export default defineConfig({
 
 > 🦉 Bigger doesn't necessarily mean better with concurrency. There is a physical limit to any concurrency dictated by your hardware. If you set a `maxConcurrency` value higher than that limit, concurrent tests will be _queued_ until they have a slot to run.
 
-By fine-tunning `maxConcurrency`, we are able to improve the test performance even further to the whooping 123ms!
+By fine-tuning `maxConcurrency`, we are able to improve the test performance even further to the whopping 123ms!
 
 ```bash remove=1 add=2
    Duration  271ms
@@ -66,14 +66,14 @@ By fine-tunning `maxConcurrency`, we are able to improve the test performance ev
 
 While concurrency may improve performance, it can also make your tests _flaky_. Keep in mind that the main price you pay for concurrency is _writing isolated tests_.
 
-Here's a few guidelines on how to keep your tests concurrency-friendly:
+Here are a few guidelines on how to keep your tests concurrency-friendly:
 
-- **Do not rely on _shared state_ of any kind**. Never have multiple test modify the same data (even the `expect` function can become a shared state!). In practice, you achieve this through actions like:
+- **Do not rely on _shared state_ of any kind**. Never have multiple tests modify the same data (even the `expect` function can become a shared state!). In practice, you achieve this through actions like:
   - Striving toward self-contained tests (never have one test rely on the result of another);
   - Keeping the test setup next to the test itself;
   - Binding mocks (e.g. databases or network) to the test.
 - **Isolate side effects**. If your test absolutely must perform a side effect, like writing to a file, guarantee that those side effects are isolated and bound to the test (e.g. create a temporary file accessed only by this particular test).
-- **Abolish hard-coded values**. If two tests try to establish a mock server at the same port, one is destined to fail. Once again, procude test-specific fixtures (e.g. spawn a mock server at port `0` to get a random available port number).
+- **Abolish hard-coded values**. If two tests try to establish a mock server at the same port, one is destined to fail. Once again, produce test-specific fixtures (e.g. spawn a mock server at port `0` to get a random available port number).
 
 It is worth mentioning that due to these considerations, not all test cases can be flipped to concurrent and call it a day. Concurrency can, however, be a useful factor to stress your tests and highlight the shortcomings in their design. You can then address those shortcomings in planned, incremental refactors to benefit from concurrency (among other things) once your tests are properly isolated.
 

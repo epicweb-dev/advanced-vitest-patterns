@@ -2,7 +2,7 @@
 
 <EpicVideo url="https://www.epicweb.dev/workshops/advanced-vitest-patterns/assertions/03-02-problem" />
 
-_Assymetric matcher_ is the one where the `actual` value is literal while the `expected` value is an _expression_.
+_Asymmetric matcher_ is the one where the `actual` value is literal while the `expected` value is an _expression_.
 
 ```ts nonumber
 //     👇 Literal string
@@ -48,7 +48,7 @@ expect(user).toEqual({
 })
 ```
 
-> Here, the `user` object is expected to literally match the object with the `id` and `posts` properties. While the expectation toward the `id` property is literal, the `posts` proprety is described as an abstract `Array<{ id: string }>` object.
+> Here, the `user` object is expected to literally match the object with the `id` and `posts` properties. While the expectation toward the `id` property is literal, the `posts` property is described as an abstract `Array<{ id: string }>` object.
 
 ## `.toMatchSchema()`
 
