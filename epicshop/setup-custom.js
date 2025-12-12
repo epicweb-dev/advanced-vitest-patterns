@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { warm } from '@epic-web/workshop-cli/warm'
+import { warm } from 'epicshop/warm'
 import {
 	getApps,
 	isProblemApp,
