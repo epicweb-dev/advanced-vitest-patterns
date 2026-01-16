@@ -37,7 +37,7 @@ jobs:
         run:
           echo "Linting does not work in CI for some reason. We'll enable it
           when we have time to figure out why."
-        working-directory: ./workshop/${{ github.event.repository.name }}
+        working-directory: ./workshop
 
   deploy:
     name: 🚀 Deploy
